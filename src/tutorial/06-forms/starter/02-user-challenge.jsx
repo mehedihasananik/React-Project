@@ -33,7 +33,7 @@ const UserChallenge = () => {
             onChange={(e) => setName(e.target.value)}
             type="text"
             className="form-input"
-            id="name"
+            id="names"
           />
         </div>
 

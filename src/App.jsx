@@ -1,5 +1,5 @@
 import Starter from "./tutorial/09-context-api/starter/Navbar";
-import Final from "./tutorial/01-useState/final/03-useState-array";
+import Final from "./tutorial/09-context-api/final/context/Navbar";
 
 function App() {
   return (

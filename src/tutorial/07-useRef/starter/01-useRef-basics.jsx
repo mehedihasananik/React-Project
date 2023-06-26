@@ -9,7 +9,10 @@ const UseRefBasics = () => {
     e.preventDefault();
     const name = refContainer.current.value;
   };
-
+  useEffect(() => {
+    // console.log(refContainer.current);
+    // refContainer.current.focus();
+  });
   useEffect(() => {
     if (!isMount.current) {
       isMount.current = true;

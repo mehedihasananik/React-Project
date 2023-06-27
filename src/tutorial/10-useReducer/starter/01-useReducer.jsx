@@ -1,5 +1,5 @@
-import React from 'react';
-import { data } from '../../../data';
+import React from "react";
+import { data } from "../../../data";
 const ReducerBasics = () => {
   const [people, setPeople] = React.useState(data);
 
@@ -7,24 +7,35 @@ const ReducerBasics = () => {
     let newPeople = people.filter((person) => person.id !== id);
     setPeople(newPeople);
   };
+  const resetFunc = () => {
+    setPeople(data);
+  };
   return (
-    <div>
+    <div className="text-center pt-5">
       {people.map((person) => {
         const { id, name } = person;
         return (
-          <div key={id} className='item'>
+          <div key={id} className="item">
             <h4>{name}</h4>
             <button onClick={() => removeItem(id)}>remove</button>
           </div>
         );
       })}
-      <button
-        className='btn'
-        style={{ marginTop: '2rem' }}
-        onClick={() => setPeople([])}
-      >
-        clear items
-      </button>
+      {people.length < 1 ? (
+        <>
+          <button onClick={resetFunc}>Reset</button>
+        </>
+      ) : (
+        <>
+          <button
+            className="btn"
+            style={{ marginTop: "2rem" }}
+            onClick={() => setPeople([])}
+          >
+            clear items
+          </button>
+        </>
+      )}
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { data } from "../../../data";
 const defaultState = {
   people: data,
 };
+
 const reducer = () => {};
 
 const ReducerBasics = () => {
@@ -19,7 +20,6 @@ const ReducerBasics = () => {
   const resetFunc = () => {
     // setPeople(data);
   };
-
   return (
     <div className="text-center pt-5">
       {state.people.map((person) => {

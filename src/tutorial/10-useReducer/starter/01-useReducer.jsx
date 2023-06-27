@@ -4,11 +4,11 @@ const ReducerBasics = () => {
   const [people, setPeople] = React.useState(data);
 
   const removeItem = (id) => {
-    let newPeople = people.filter((person) => person.id !== id);
-    setPeople(newPeople);
+    // let newPeople = people.filter((person) => person.id !== id);
+    // setPeople(newPeople);
   };
   const resetFunc = () => {
-    setPeople(data);
+    // setPeople(data);
   };
   return (
     <div className="text-center pt-5">

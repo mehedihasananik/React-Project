@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { data } from "../../../data";
+
+const defaultState = {
+  people: data,
+};
+const reducer = () => {};
+
 const ReducerBasics = () => {
-  const [people, setPeople] = React.useState(data);
+  const [state, dispatch] = useReducer(reducer, defaultState);
+  console.log(state.people);
+
+  // const [people, setPeople] = React.useState(data);
 
   const removeItem = (id) => {
     // let newPeople = people.filter((person) => person.id !== id);
@@ -10,9 +19,10 @@ const ReducerBasics = () => {
   const resetFunc = () => {
     // setPeople(data);
   };
+
   return (
     <div className="text-center pt-5">
-      {people.map((person) => {
+      {state.people.map((person) => {
         const { id, name } = person;
         return (
           <div key={id} className="item">
@@ -21,7 +31,7 @@ const ReducerBasics = () => {
           </div>
         );
       })}
-      {people.length < 1 ? (
+      {state.people.length < 1 ? (
         <>
           <button onClick={resetFunc}>Reset</button>
         </>

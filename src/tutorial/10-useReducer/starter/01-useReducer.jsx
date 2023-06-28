@@ -1,28 +1,21 @@
-import React, { useReducer } from "react";
+import React from "react";
 import { data } from "../../../data";
-
-const defaultState = {
-  people: data,
-};
-
-const reducer = () => {};
-
 const ReducerBasics = () => {
-  const [state, dispatch] = useReducer(reducer, defaultState);
-  console.log(state.people);
-
-  // const [people, setPeople] = React.useState(data);
+  const [people, setPeople] = React.useState(data);
 
   const removeItem = (id) => {
-    // let newPeople = people.filter((person) => person.id !== id);
-    // setPeople(newPeople);
+    let newPeople = people.filter((person) => person.id !== id);
+    setPeople(newPeople);
   };
-  const resetFunc = () => {
-    // setPeople(data);
+  const resetList = () => {
+    setPeople(data);
+  };
+  const clearList = () => {
+    setPeople([]);
   };
   return (
-    <div className="text-center pt-5">
-      {state.people.map((person) => {
+    <div className="text-center">
+      {people.map((person) => {
         const { id, name } = person;
         return (
           <div key={id} className="item">
@@ -31,20 +24,22 @@ const ReducerBasics = () => {
           </div>
         );
       })}
-      {state.people.length < 1 ? (
-        <>
-          <button onClick={resetFunc}>Reset</button>
-        </>
+      {people.length < 1 ? (
+        <button
+          className="btn"
+          style={{ marginTop: "2rem" }}
+          onClick={resetList}
+        >
+          reset
+        </button>
       ) : (
-        <>
-          <button
-            className="btn"
-            style={{ marginTop: "2rem" }}
-            onClick={() => setPeople([])}
-          >
-            clear items
-          </button>
-        </>
+        <button
+          className="btn"
+          style={{ marginTop: "2rem" }}
+          onClick={clearList}
+        >
+          clear
+        </button>
       )}
     </div>
   );

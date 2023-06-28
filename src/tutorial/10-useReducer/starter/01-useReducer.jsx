@@ -4,11 +4,14 @@ const ReducerBasics = () => {
   const [people, setPeople] = React.useState(data);
 
   const removeItem = (id) => {
-    let newPeople = people.filter((person) => person.id !== id);
-    setPeople(newPeople);
+    // let newPeople = people.filter((person) => person.id !== id);
+    // setPeople(newPeople);
   };
   const resetList = () => {
-    setPeople(data);
+    // setPeople(data);
+  };
+  const clearList = () => {
+    // setPeople([]);
   };
   return (
     <div>

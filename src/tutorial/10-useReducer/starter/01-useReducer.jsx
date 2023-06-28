@@ -3,6 +3,7 @@ import { data } from "../../../data";
 
 const CLEAR_LIST = "CLEAR_LIST";
 const RESET_LIST = "RESET_LIST";
+const REMOVE_PERSON = "REMOVE_PERSON";
 
 const defaultState = {
   people: data,
@@ -16,6 +17,17 @@ const reducer = (state, action) => {
       people: data,
     };
   }
+  if (action.type === REMOVE_PERSON) {
+    console.log(action);
+    let updatePeople = state.people.filter(
+      (item) => item.id !== action.payload.id
+    );
+    return {
+      ...state,
+      people: updatePeople,
+    };
+  }
+  return state;
 };
 
 const ReducerBasics = () => {
@@ -24,6 +36,7 @@ const ReducerBasics = () => {
   // const [people, setPeople] = React.useState(data);
 
   const removeItem = (id) => {
+    dispatch({ type: REMOVE_PERSON, payload: { id } });
     // let newPeople = people.filter((person) => person.id !== id);
     // setPeople(newPeople);
   };

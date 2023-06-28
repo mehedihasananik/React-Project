@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { data } from "../../../data";
-const ReducerBasics = () => {
-  const [people, setPeople] = React.useState(data);
 
+const defaultReducer = {
+  people: data,
+};
+
+const reducer = (state, action) => {
+  if (action.type === "COMPLETE") {
+    return { ...state, people: [] };
+  }
+};
+
+const ReducerBasics = () => {
+  const [state, dispatch] = useReducer(reducer, defaultReducer);
+  console.log(state.people);
+
+  // const [people, setPeople] = React.useState(data);
   const removeItem = (id) => {
     let newPeople = people.filter((person) => person.id !== id);
     setPeople(newPeople);
@@ -10,12 +23,15 @@ const ReducerBasics = () => {
   const resetList = () => {
     setPeople(data);
   };
+
   const clearList = () => {
-    setPeople([]);
+    dispatch({ type: "COMPLETE" });
+
+    // setPeople([]);
   };
   return (
     <div className="text-center">
-      {people.map((person) => {
+      {state.people.map((person) => {
         const { id, name } = person;
         return (
           <div key={id} className="item">
@@ -24,7 +40,7 @@ const ReducerBasics = () => {
           </div>
         );
       })}
-      {people.length < 1 ? (
+      {state.people.length < 1 ? (
         <button
           className="btn"
           style={{ marginTop: "2rem" }}

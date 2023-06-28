@@ -1,21 +1,42 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { data } from "../../../data";
+
+const CLEAR_LIST = "CLEAR_LIST";
+const RESET_LIST = "RESET_LIST";
+
+const defaultState = {
+  people: data,
+};
+const reducer = (state, action) => {
+  if (action.type === CLEAR_LIST) {
+    return { ...state, people: [] };
+  }
+  if (action.type === RESET_LIST) {
+    return {
+      people: data,
+    };
+  }
+};
+
 const ReducerBasics = () => {
-  const [people, setPeople] = React.useState(data);
+  const [state, dispatch] = useReducer(reducer, defaultState);
+
+  // const [people, setPeople] = React.useState(data);
 
   const removeItem = (id) => {
     // let newPeople = people.filter((person) => person.id !== id);
     // setPeople(newPeople);
   };
   const resetList = () => {
-    // setPeople(data);
+    dispatch({ type: RESET_LIST });
   };
   const clearList = () => {
+    dispatch({ type: CLEAR_LIST });
     // setPeople([]);
   };
   return (
-    <div>
-      {people.map((person) => {
+    <div className="text-center">
+      {state.people.map((person) => {
         const { id, name } = person;
         return (
           <div key={id} className="item">
@@ -24,7 +45,7 @@ const ReducerBasics = () => {
           </div>
         );
       })}
-      {people.length < 1 ? (
+      {state.people.length < 1 ? (
         <button
           className="btn"
           style={{ marginTop: "2rem" }}

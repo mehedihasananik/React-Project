@@ -1,23 +1,32 @@
-export const data = [
-  { id: 1, name: 'john' },
-  { id: 2, name: 'peter' },
-  { id: 3, name: 'susan' },
-  { id: 4, name: 'anna' },
-];
-
-export const people = [
-  { id: 1, name: 'bob', nickName: 'Stud Muffin' },
-  { id: 2, name: 'peter' },
+const reviews = [
+  {
+    id: 1,
+    name: 'susan smith',
+    job: 'web developer',
+    image: 'https://course-api.com/images/people/person-1.jpeg',
+    text: "I'm baby meggings twee health goth +1. Bicycle rights tumeric chartreuse before they sold out chambray pop-up. Shaman humblebrag pickled coloring book salvia hoodie, cold-pressed four dollar toast everyday carry",
+  },
+  {
+    id: 2,
+    name: 'anna johnson',
+    job: 'web designer',
+    image: 'https://course-api.com/images/people/person-2.jpeg',
+    text: 'Helvetica artisan kinfolk thundercats lumbersexual blue bottle. Disrupt glossier gastropub deep v vice franzen hell of brooklyn twee enamel pin fashion axe.photo booth jean shorts artisan narwhal.',
+  },
   {
     id: 3,
-    name: 'oliver',
-    images: [
-      {
-        small: {
-          url: 'https://res.cloudinary.com/diqqf3eq2/image/upload/ar_1:1,bo_5px_solid_rgb:ff0000,c_fill,g_auto,r_max,w_1000/v1595959121/person-1_aufeoq.jpg',
-        },
-      },
-    ],
+    name: 'peter jones',
+    job: 'intern',
+    image: 'https://course-api.com/images/people/person-4.jpeg',
+    text: 'Sriracha literally flexitarian irony, vape marfa unicorn. Glossier tattooed 8-bit, fixie waistcoat offal activated charcoal slow-carb marfa hell of pabst raclette post-ironic jianbing swag.',
   },
-  { id: 4, name: 'david' },
+  {
+    id: 4,
+    name: 'bill anderson',
+    job: 'the boss',
+    image: 'https://course-api.com/images/people/person-3.jpeg',
+    text: 'Edison bulb put a bird on it humblebrag, marfa pok pok heirloom fashion axe cray stumptown venmo actually seitan. VHS farm-to-table schlitz, edison bulb pop-up 3 wolf moon tote bag street art shabby chic. ',
+  },
 ];
+
+export default reviews;
